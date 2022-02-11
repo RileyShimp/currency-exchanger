@@ -22,8 +22,8 @@ $(document).ready(function() {
       $("#results").html(conversion);
     },function(response) {
       const body = JSON.parse(response);
-      const errors = body["error-type"];
-      $("#errors").html(`Error: ${errors}`);
+      const error = body["error-type"];
+      $("#errors").html(`Input Error: ${error}`);
       $("#apiErrors").html(`${response}`);
     });
   });

@@ -12,7 +12,7 @@
     <form id="currencyForm" class="formbox">
       <div>
         <label for="amount">ENTER AN AMOUNT</label>
-        <input type="number" step="0.01" id="input" class="form-control" min="0.01" required>
+        <input type="number" step="0.01" id="input" class="form-control" min="0.01" onkeydown="return event.keyCode !== 69" required>
         <button id="inputButton" type="submit" class="btn btn-dark btn-lg btn-block">GO!</button>
       </div>
       <div class="form-group">
