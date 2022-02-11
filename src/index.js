@@ -24,7 +24,7 @@ $(document).ready(function() {
       $("#results").html(conversion);
     },function(response) {
       const body = JSON.parse(response);
-      const error = body.result;
+      const error = body.error-type;
       $("#errors").html(error);
     });
   });
