@@ -14,18 +14,16 @@ $(document).ready(function() {
     event.preventDefault();
     let input = $("#input").val();
     let currency = $("#currency").val();
-    console.log(currency);
     clearInput();
     let promise = Exchange.getCurrency(input,currency);
     promise.then(function(response) {
       const body = JSON.parse(response);
-      console.log(body);
       const conversion = body.conversion_result;
       $("#results").html(conversion);
     },function(response) {
       const body = JSON.parse(response);
-      const error = body.error-type;
-      $("#errors").html(error);
+      const error = body["error-type"];
+      $("#errors").html(`Error: ${error}`);
     });
   });
 });
