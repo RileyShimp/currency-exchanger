@@ -1,7 +1,7 @@
-export default class Yen {
-  static getYen(input) {
+export default class Exchange {
+  static getCurrency(input,currency) {
     return new Promise (function(resolve,reject) { 
-      const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/JPY/${input}`;
+      const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${currency}/${input}`;
       let request = new XMLHttpRequest();
       request.onload = function() {
         if (this.status === 200) {

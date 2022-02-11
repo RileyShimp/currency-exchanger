@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import Euro from './js/euro.js';
+import Exchange from './js/exchange.js';
 
 let clearInput = () => {
   $('#input').val("");
@@ -15,7 +15,7 @@ $(document).ready(function() {
     let currency = $("#currency").val();
     console.log(currency);
     clearInput();
-    let promise = Euro.getEuro(input,currency);
+    let promise = Exchange.getCurrency(input,currency);
     promise.then(function(response) {
       const body = JSON.parse(response);
       console.log(body);
