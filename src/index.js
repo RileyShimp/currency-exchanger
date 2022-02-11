@@ -4,14 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Euro from './js/euro.js';
 
-// let clearInput = () => {
-//   $('#input').val("");
-// };
+let clearInput = () => {
+  $('#input').val("");
+};
 
 $(document).ready(function() {
   $("#currencyForm").submit(function(event) {
     event.preventDefault();
-    let input = parseInt($("#input").val());
+    let input = $("#input").val();
+    clearInput();
     let promise = Euro.getEuro(input);
     promise.then(function(response) {
       const body = JSON.parse(response);
@@ -19,7 +20,7 @@ $(document).ready(function() {
       const conversion = body.conversion_result;
       $("#results").html(conversion);
     },function(error) {
-      $('.showErrors').text(`There was an error: ${response.error-type}`);
+      $('.showErrors').text(`There was an error: INVALID CURRENCY}`);
       console.log(error);
     });
   });
