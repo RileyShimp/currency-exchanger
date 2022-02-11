@@ -5,20 +5,21 @@ import './css/styles.css';
 import Euro from './js/euro.js';
 
 // let clearInput = () => {
-//   $('#search').val("");
+//   $('#input').val("");
 // };
 
 $(document).ready(function() {
-  $("#convert").click(function() {
+  $("#convert").click(function(event) {
+    event.preventDefault();
     let input = $("#input").val();
     let promise = Euro.getEuro(input);
     promise.then(function(response) {
       const body = JSON.parse(response);
       console.log(body);
-      const conversion = body.conversion_rate;
+      const conversion = body.conversion_result;
       $("#results").html(conversion);
     },function(error) {
-      $('#showErrors').text("There was an error: INVALID INPUT");
+      $('#showErrors').html(error);
       console.log(error);
     });
   });
