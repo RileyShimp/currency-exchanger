@@ -12,8 +12,10 @@ $(document).ready(function() {
   $("#currencyForm").submit(function(event) {
     event.preventDefault();
     let input = $("#input").val();
+    let currency = $("#currency").val();
+    console.log(currency);
     clearInput();
-    let promise = Euro.getEuro(input);
+    let promise = Euro.getEuro(input,currency);
     promise.then(function(response) {
       const body = JSON.parse(response);
       console.log(body);
