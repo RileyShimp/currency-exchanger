@@ -7,6 +7,8 @@ import Exchange from './js/exchange.js';
 let clearInput = () => {
   $('#input').val("");
   $('#results').text("");
+  $('#errors').text("");
+  $('#apiErrors').text("");
 };
 
 $(document).ready(function() {
@@ -20,11 +22,13 @@ $(document).ready(function() {
       const body = JSON.parse(response);
       const conversion = body.conversion_result;
       $("#results").html(conversion);
+      $("#resultCard").show();
     },function(response) {
       const body = JSON.parse(response);
       const error = body["error-type"];
       $("#errors").html(`Input Error: ${error}`);
       $("#apiErrors").html(`${response}`);
+      $("#resultCard").show();
     });
   });
 });

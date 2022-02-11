@@ -11,9 +11,8 @@
     </header>
     <form id="currencyForm" class="formbox">
       <div>
-        <label for="amount">ENTER AN AMOUNT</label>
+        <label for="amount">ENTER AN AMOUNT IN USD</label>
         <input type="number" step="0.01" id="input" class="form-control" min="0.01" onkeydown="return event.keyCode !== 69" required>
-        <button id="inputButton" type="submit" class="btn btn-dark btn-lg btn-block">GO!</button>
       </div>
       <div class="form-group">
         <label for="currency">SELECT A CURRENCY</label>
@@ -25,11 +24,12 @@
           <option value="CAD">Canadian Dollar</option>
           <option value="CHF">Swiss Franc</option>
         </select>
+        <button id="inputButton" type="submit" class="btn btn-dark btn-lg btn-block">GO!</button>
     </form>
-    <div class="card">
+    <div id="resultCard" class="card">
       <h2 id="results"></h2>
     </div>
-    <div class="card">
+    <div id="errorCard" class="card">
       <h2 id="errors"></h2>
       <h2 id="apiErrors"></h2>
     </div>

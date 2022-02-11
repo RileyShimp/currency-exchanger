@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  background: linear-gradient(0.25turn, rgb(2, 2, 2), rgb(31, 31, 31), rgb(46, 46, 46));
+  color: greenyellow;
+  font-family: 'Press Start 2P';
+  background-size: 1000% 1000%;
+  animation: changeColor 1s alternate infinite;
+}
+
+@keyframes changeColor {
+  0% {background-position: 0%}
+  25% {background-position: 25%}
+  50% {background-position: 50%}
+  75% {background-position: 75%}
+  100% {background-position: 100%}
+}
+
+header {
+  text-align: center;
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+
+label {
+  font-size: x-large;
+  padding-left: 20px;
+}
+
+.card {
+  margin : 20px;
+  background-color: rgba(72, 72, 72, 0.68);
+}
+
+#resultCard {
+  display: none;
+}
+
+#errorCard {
+  display: none;
+}
+
