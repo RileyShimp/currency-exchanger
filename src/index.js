@@ -14,12 +14,11 @@ $(document).ready(function() {
     let promise = Euro.getEuro(input);
     promise.then(function(response) {
       const body = JSON.parse(response);
-      console.log(response);
-      const conversion = body.conversion_result;
-      let htmlString = `<img src="${conversion}">`;
-      $("#results").html(htmlString);
+      console.log(body);
+      const conversion = body.conversion_rate;
+      $("#results").html(conversion);
     },function(error) {
-      $('.showErrors').text(`There was an error: INVALID INPUT`);
+      $('#showErrors').text("There was an error: INVALID INPUT");
       console.log(error);
     });
   });
