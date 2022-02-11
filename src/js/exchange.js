@@ -5,6 +5,7 @@ export default class Exchange {
       let request = new XMLHttpRequest();
       request.onload = function() {
         if (this.status === 200) {
+          console.log(this.status);
           resolve(request.response);
         } else {
           reject(request.response);

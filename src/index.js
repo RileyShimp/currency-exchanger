@@ -22,8 +22,9 @@ $(document).ready(function() {
       $("#results").html(conversion);
     },function(response) {
       const body = JSON.parse(response);
-      const error = body["error-type"];
-      $("#errors").html(`Error: ${error}`);
+      const errors = body["error-type"];
+      $("#errors").html(`Error: ${errors}`);
+      $("#apiErrors").html(`${response}`);
     });
   });
 });
