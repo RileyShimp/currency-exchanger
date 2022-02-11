@@ -6,6 +6,7 @@ import Exchange from './js/exchange.js';
 
 let clearInput = () => {
   $('#input').val("");
+  $('#results').text("");
 };
 
 $(document).ready(function() {
@@ -21,9 +22,10 @@ $(document).ready(function() {
       console.log(body);
       const conversion = body.conversion_result;
       $("#results").html(conversion);
-    },function(error) {
-      $('.showErrors').text(`There was an error: INVALID CURRENCY}`);
-      console.log(error);
+    },function(response) {
+      const body = JSON.parse(response);
+      const error = body.result;
+      $("#errors").html(error);
     });
   });
 });
