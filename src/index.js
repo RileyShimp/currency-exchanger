@@ -9,9 +9,9 @@ import Euro from './js/euro.js';
 // };
 
 $(document).ready(function() {
-  $("#convert").click(function(event) {
+  $("#currencyForm").submit(function(event) {
     event.preventDefault();
-    let input = $("#input").val();
+    let input = parseInt($("#input").val());
     let promise = Euro.getEuro(input);
     promise.then(function(response) {
       const body = JSON.parse(response);
@@ -19,7 +19,7 @@ $(document).ready(function() {
       const conversion = body.conversion_result;
       $("#results").html(conversion);
     },function(error) {
-      $('#showErrors').html(error);
+      $('.showErrors').text(`There was an error: ${response.error-type}`);
       console.log(error);
     });
   });
