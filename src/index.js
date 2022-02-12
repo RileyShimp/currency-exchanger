@@ -9,6 +9,8 @@ let clearInput = () => {
   $('#results').text("");
   $('#errors').text("");
   $('#apiErrors').text("");
+  $("#resultCard").hide();
+  $("#errorCard").hide();
 };
 
 $(document).ready(function() {
@@ -27,8 +29,7 @@ $(document).ready(function() {
       const body = JSON.parse(response);
       const error = body["error-type"];
       $("#errors").html(`Input Error: ${error}`);
-      $("#apiErrors").html(`${response}`);
-      $("#resultCard").show();
+      $("#errorCard").show();
     });
   });
 });
