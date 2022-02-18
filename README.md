@@ -34,7 +34,7 @@ In your terminal, run the command `npm install` to install dependencies
 * Visit `https://www.exchangerate-api.com/` Input your email address and click the "Get Free Key" button.
 * You'll be prompted to create an account with your email, first name and a password. Agree to the terms of use and click "Get Started!"
 * At this point, you'll be able to access a dashboard that includes your API key as well as your remaining API calls for the month.
-* Create a `.env` file in the root directory, store your own API key in this file and name ot `API_KEY`. For example, your .env file should look like this: `API_KEY = (Enter your API key here)`
+* Create a `.env` file in the root directory, store your own API key in this file and name it `API_KEY`. For example, your .env file should look like this: `API_KEY = (Enter your API key here)`
 ### Step 6
 Finally, run the command `npm run start` to start a development server in your default web browser.
 
