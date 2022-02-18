@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import Exchange from './js/exchange.js';
+import Exchange from './js/exchangeFetch.js';
 
 let clearInput = () => {
   $('#input').val("");
@@ -13,23 +13,25 @@ let clearInput = () => {
   $("#errorCard").hide();
 };
 
+function getElements(response) {
+  if (response.conversion_result) {
+    $('#results').text(`${response.conversion_result}`);
+    $("#resultCard").show();
+  } else {
+    $('#errors').text(`There was an error: ${response.message}`);
+    $("#errorCard").show();
+  }
+}
+
 $(document).ready(function() {
   $("#currencyForm").submit(function(event) {
     event.preventDefault();
     let input = $("#input").val();
     let currency = $("#currency").val();
     clearInput();
-    let promise = Exchange.getCurrency(input,currency);
-    promise.then(function(response) {
-      const body = JSON.parse(response);
-      const conversion = body.conversion_result;
-      $("#results").html(conversion);
-      $("#resultCard").show();
-    },function(response) {
-      const body = JSON.parse(response);
-      const error = body["error-type"];
-      $("#errors").html(`Input Error: ${error}`);
-      $("#errorCard").show();
-    });
+    Exchange.getCurrency(input,currency)
+      .then(function(response){
+        getElements(response);
+      });
   });
 });
